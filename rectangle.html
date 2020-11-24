@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rectangle</title>
+</head>
+<body>
+<canvas width="200px" height="100px" id="rec"></canvas><br>
+<p id="p"></p>
+<p id="a"></p>
+<script>
+    let Rectangle = function (w,h){
+        this.width=w;
+        this.height=h;
+        this.area=function (){
+            return w*h;
+        }
+        this.perimeter=function (){
+            return 2*(w+h);
+        }
+        this.displayRec =function (){
+            let c=document.getElementById("rec");
+            let ctx=c.getContext("2d");
+            ctx.fillStyle= "red";
+            ctx.fillRect(0,0,w,h);
+        }
+    }
+    let a = +prompt("nhập chiều ngang");
+    let b = +prompt("nhập chiều cao");
+    let rectangle = new Rectangle(a,b);
+    rectangle.displayRec();
+    document.getElementById('p').innerHTML="Chu vi : "+rectangle.perimeter();
+    document.getElementById('a').innerHTML="Diện tích "+rectangle.area();
+
+</script>
+</body>
+</html>
